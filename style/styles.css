@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-@font-face{
+/* @font-face{
     font-family: "tajawal";
     src: url("../fonts/Tajawal-Regular.ttf") format(".ttf");
     font-weight: 400;
@@ -20,7 +20,7 @@
     font-family: "tajawal";
     src: url("../fonts/Tajawal-Bold.ttf") format(".ttf");
     font-weight: 600;
-}
+} */
 
 :root{
 
@@ -29,7 +29,7 @@
 
     --font-regular: 400;
     --font-ultralight: 100;
-    --font-bold: 600;
+    --font-bold: 700;
 
 }
 
@@ -259,7 +259,7 @@ body{
 .c-form--title {
     font-family: "tajawal";
     color: white;
-    font-weight: 600;
+    font-weight: 700;
 }
 .c-form--title h1{
     font-size: 48px;
@@ -279,7 +279,7 @@ body{
 }
 
 .c-form--subtext span{
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .c-refresh__holder:hover{
@@ -373,7 +373,7 @@ height: 68px;
     width: 200px;
     color: white;
     font-family: "tajawal";
-    font-weight: 600;
+    font-weight: 700;
     font-size: 22px;
     outline: none;
     border-radius: 10px;
