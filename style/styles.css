@@ -1,0 +1,407 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: "tajawal";
+    src: url("../fonts/Tajawal-Regular.ttf") format(".ttf");
+    font-weight: 400;
+}
+
+@font-face{
+    font-family: "tajawal";
+    src: url("../fonts/Tajawal-ExtraLight.ttf") format(".ttf");
+    font-weight: 100;
+}
+
+@font-face{
+    font-family: "tajawal";
+    src: url("../fonts/Tajawal-Bold.ttf") format(".ttf");
+    font-weight: 600;
+}
+
+:root{
+
+    --color-background: #3D4A5A;
+    
+
+    --font-regular: 400;
+    --font-ultralight: 100;
+    --font-bold: 600;
+
+}
+
+body{
+    position: relative;
+}
+
+.c-background-landing{
+    background-image: url("../Assets/3599609.png") ;
+
+    background-size: cover;
+    height: 100vh;
+
+    
+
+}
+
+.c-app-landing{
+    padding: 32px;
+    display:flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.c-phone{
+    height: 85vh;
+}
+
+html{
+    background-color: var(--color-background);
+    font-family: "tajawal";
+}
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.c-app{
+    width: 600px;
+}
+
+
+.c-header{
+    display: flex;
+    align-items: center;
+    margin-top: 26px;
+    justify-content: space-between;
+}
+
+.c-header__logo{
+    margin-right: 4px;
+    height: 22px;
+}
+.c-header__logo-holder{
+    display: flex;
+    align-items: center;
+}
+.c-header__logo-text{
+    color: white;
+    font-size: 18px;
+}
+
+.c-data__chart {
+    /* height: 316px; */
+    margin-top: 56px;
+    border-bottom: 1px solid white;
+}
+.c-data__chart-canvas {
+    /* height: 316px; */
+    /* width: 100%; */
+}
+
+.c-data__text{
+    display:flex;
+    justify-content: space-evenly;
+    margin-top: 18px;
+    margin-left: -48px;
+    margin-right: -48px;
+}
+
+.c-data__element{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    
+    
+}
+
+.c-data__subelement{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.c-data__element h1{
+    font-size: 18px;
+    font-weight: var(--font-bold);
+}
+
+.c-data__element p{
+    font-size: 22px;
+    font-weight: var(--font-ultralight);
+}
+
+@media(max-width:540px){
+
+    .c-data__text{
+
+        align-items: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .c-data__subelement{
+        justify-content: space-evenly;
+        flex-direction: column;
+        width: 100%;
+    }
+    .c-data__element{
+        margin-top: 32px;
+    }
+    
+}
+
+@media(max-width:725px){
+    .c-app{
+        width: 400px;
+    }
+
+}
+
+
+
+.c-input-field{
+    margin-top: 32px;
+}
+
+.c-input{
+    display: block;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-top: 16px;
+    height: 48px;
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: transparent;
+    padding: 8px;
+    padding-top: 11px;
+    padding-left: 18px;
+    font-family: "tajawal";
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+
+    transition: box-shadow 0.1s ease;
+    outline: none;
+}
+
+.c-input:hover{
+    border: 2px solid #fb838e;
+    box-shadow: 0 0 0 3px  #fb838e5c;
+}
+
+.c-input:focus, .c-input:active{
+    border: 2px solid #fb838e;
+    box-shadow: 0 0 0 3px  #fb838e5c;
+}
+
+.c-input::placeholder{
+    margin-left: 8px;
+    color: white;
+    font-family: "tajawal";
+    font-weight: 100;
+    font-size: 22px;
+}
+
+
+
+.c-input:focus + .c-input-field .c-input-label{
+    transform: translateY(-39px);
+}
+
+
+
+.c-footer{
+
+    margin-top: 180px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 16px;
+}
+
+.c-footer__item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.c-refresh{
+    
+    /* margin-top: 34px; */
+    display: flex;
+    justify-content: center;
+    margin-right: 8px;
+}
+
+.c-refresh__holder{
+    transform-origin: 10px 18px;
+
+    transition: 0.1s ease-in-out;
+}
+
+.c-refresh__holder::selection{
+    background-color: transparent;
+}
+
+.c-refresh__holder svg{
+    width: 20px;
+}
+
+.c-form{
+    width: 700px;
+}
+
+.c-form--title {
+    font-family: "tajawal";
+    color: white;
+    font-weight: 600;
+}
+.c-form--title h1{
+    font-size: 48px;
+    text-align: center;
+}
+.c-form--title h2{
+    margin-top: -24px;
+    font-size: 32px;
+    text-align: center;
+}
+
+.c-form--subtext{
+    margin-top: 32px;
+    font-size: 26px;
+    color: white;
+    font-weight: 400;
+}
+
+.c-form--subtext span{
+    font-weight: 600;
+}
+
+.c-refresh__holder:hover{
+    
+    cursor: pointer;
+    
+    transform: rotate(-30deg);
+}
+
+.c-footer{
+    margin-left: -64px;
+    margin-right: -64px;
+}
+
+.c-footer__item svg{
+
+    
+height: 68px;
+}
+
+.c-footer__item h1{
+
+    max-width: 88px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    margin-top: 16px;
+
+}
+
+
+@media(max-width:540px){
+    .c-footer{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .c-app{
+        padding: 18px;
+    }
+
+
+}
+
+@media(max-width:400px){
+    .c-data__chart-canvas{
+        width: 200px;
+    }
+
+
+}
+
+@keyframes infinite-spinning {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(720deg);
+    }
+  }
+
+  .o-button-reset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+}
+
+
+.c-button{
+    
+    background-color: #FD7F88;
+    margin-top: 16px;
+    height: 48px;
+    width: 200px;
+    color: white;
+    font-family: "tajawal";
+    font-weight: 600;
+    font-size: 22px;
+    outline: none;
+    border-radius: 10px;
+    
+}
+.c-button:hover{
+    cursor: pointer;
+
+    border: 2px solid #fb838e;
+    box-shadow: 0 0 0 3px  #fb838e5c;
+}
+
+.c-button:active{
+    cursor: pointer;
+    background-color: #f3737e;
+    border: 2px solid #fb838e;
+    box-shadow: 0 0 0 3px  #fb838e5c;
+}
+
+
+@media(max-width:940px){
+
+    .c-phone{
+        display: none;
+    }
+    .c-app-landing{
+        padding: 64px;
+    }
+
+
+}
