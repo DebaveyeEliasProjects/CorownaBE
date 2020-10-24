@@ -35,14 +35,14 @@ const initCharts = function(){
                 label: 'Reading',
                 data: null,
                 backgroundColor: 'rgba(0,0,0,0)',
-                borderColor: "rgba(255, 99, 132, 1)",
+                borderColor: "rgba(255, 255, 255, 1)",
                 borderWidth: 2
             }]
         },
         options: {
             "horizontalLine": [{
                 "y": 4.2,
-                "style": "rgba(255, 0, 0, .4)",
+                "style": "rgba(255, 255, 255, .4)",
                 "text": "max"
                 }, {
                 "y": 4.32,
@@ -59,14 +59,18 @@ const initCharts = function(){
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        fontColor: 'rgba(255,255,255,0.2)',
                     },
                     scaleLabel: {
-                        display: true,
-                        labelString: ""
+                        display: false,
+                        labelString: "",
+                        fontColor: '#ffffff',
                     }
                     ,
-                    display: false
+                    display: true,
+                    gridLines: { color: "rgba(255,255,255,0.2)" ,
+                    zeroLineColor: 'rgba(255,255,255,0.2)'}
                 }],
                 xAxes: [{
                     ticks: {
@@ -98,19 +102,33 @@ const showData = function(json){
     let active = data.Active;
     let newCases = confirmed - data2.Confirmed;
     let recovered = data.Recovered;
+    let max = 0;
     golf = [];
     for(x of json){
         let nexData = json[json.indexOf(x)+1];
+        
         //console.log(nexData)
         if(nexData != undefined){
+            if(nexData.Confirmed  - x.Confirmed > max){
+                max = nexData.Confirmed  - x.Confirmed;
+            }
             golf.push(nexData.Confirmed  - x.Confirmed);
         }
         
     }
     chart.data.datasets[0].data = golf;
     chart.data.labels = golf;
-    chart.update();
     
+    chart.update();
+    let rest = max % 2000;
+    let linevars = [];
+    let totalLines = (max - rest) / 2000;
+    for(let i = 0; i<totalLines; i++){
+        linevars.push(2000*i);
+    }
+    linevars.push((totalLines)*2000);
+    linevars.push((totalLines+1)*2000);
+    console.log(linevars);
     console.log(chart.data.datasets[0].data)
     document.querySelector(".js-new-cases").innerHTML = newCases;
     document.querySelector(".js-total-cases").innerHTML = confirmed;
