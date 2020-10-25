@@ -28,7 +28,7 @@
     
 
     --font-regular: 400;
-    --font-ultralight: 100;
+    --font-ultralight: 200;
     --font-bold: 700;
 
 }
@@ -216,7 +216,7 @@ body{
     margin-left: 8px;
     color: white;
     font-family: "tajawal";
-    font-weight: 100;
+    font-weight: var(--font-ultralight);
     font-size: 22px;
 }
 
@@ -277,7 +277,7 @@ body{
 }
 
 .c-form--title {
-    font-family: "tajawal";
+    font-family: "Tajawal";
     color: white;
     font-weight: 700;
 }
