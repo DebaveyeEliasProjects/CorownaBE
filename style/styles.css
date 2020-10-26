@@ -276,6 +276,7 @@ body{
 
 .c-footer__item{
     width: 160px;
+    min-height: 150px;
     display: grid;
     grid-template-columns: 100%;
     justify-items: center;
