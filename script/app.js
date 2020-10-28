@@ -95,24 +95,53 @@ const showData = function(json){
     
     data = json[json.length-1]
     data2 = json[json.length-2]
-    console.log(data)
-    console.log(data2)
+    // console.log(data)
+    // console.log(data2)
     let deaths = data.Deaths;
     let confirmed = data.Confirmed;
     let active = data.Active;
     let newCases = confirmed - data2.Confirmed;
     let recovered = data.Recovered;
     let max = 0;
+    let laatst = 0;
     golf = [];
     for(x of json){
         let nexData = json[json.indexOf(x)+1];
+
+        // if(previous != undefined){
+        //     console.log(nexData.Confirmed + " " + previous.Confirmed)
+        // }
         
         //console.log(nexData)
         if(nexData != undefined){
             if(nexData.Confirmed  - x.Confirmed > max){
                 max = nexData.Confirmed  - x.Confirmed;
             }
-            golf.push(nexData.Confirmed  - x.Confirmed);
+
+            if(nexData.Confirmed  - x.Confirmed == 0){
+                
+                let latest = golf[golf.length-1]
+                let prelatest = golf[golf.length-2]
+                let median = (latest + prelatest)/2;
+                // console.log(median)
+                if(isNaN(median)){
+                    console.log("yes")
+                    median = 0;
+                }
+                golf.push(median)
+                // console.log(json.indexOf(x))
+                // console.log(json.length)
+                if(json.indexOf(x)+1 == json.length-1){
+                    
+                    laatst = Math.round(median);
+                }
+
+            }
+            else{
+                golf.push(nexData.Confirmed  - x.Confirmed);
+            }
+            // console.log(x.Confirmed)
+            
         }
         
     }
@@ -128,9 +157,14 @@ const showData = function(json){
     }
     linevars.push((totalLines)*2000);
     linevars.push((totalLines+1)*2000);
-    console.log(linevars);
-    console.log(chart.data.datasets[0].data)
+    // console.log(linevars);
+    // console.log(chart.data.datasets[0].data)
+    
     document.querySelector(".js-new-cases").innerHTML = newCases;
+    // console.log(laatst)
+    if(laatst != 0){
+        document.querySelector(".js-new-cases").innerHTML = laatst;
+    } 
     document.querySelector(".js-total-cases").innerHTML = confirmed;
     document.querySelector(".js-total-recovered").innerHTML = recovered;
     document.querySelector(".js-total-deaths").innerHTML = deaths;

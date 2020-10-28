@@ -293,6 +293,10 @@ body{
     height: 68px;
 }
 
+.c-footer__item img{
+    height: 68px;
+}
+
 .c-footer__item h1{
     text-align: center;
     font-size: 18px;
