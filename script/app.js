@@ -128,7 +128,7 @@ const showData = function(json){
                     console.log("yes")
                     median = 0;
                 }
-                golf.push(median)
+                golf.push(Math.round(median))
                 // console.log(json.indexOf(x))
                 // console.log(json.length)
                 if(json.indexOf(x)+1 == json.length-1){
