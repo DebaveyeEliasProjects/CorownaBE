@@ -75,8 +75,18 @@ const initCharts = function(){
                 xAxes: [{
                     ticks: {
                         autoSkip: true,
+                        fontColor: 'rgba(255,255,255,0.2)',
+                        maxTicksLimit: 20
                     },
-                    display: false
+                    
+                    scaleLabel: {
+                        display: false,
+                        labelString: "",
+                        fontColor: '#ffffff',
+                    },
+                    gridLines: { color: "rgba(255,255,255,0.2)" ,
+                    zeroLineColor: 'rgba(255,255,255,0.2)'},
+                    display: true
                 }]
             },
             elements: {
@@ -95,7 +105,7 @@ const showData = function(json){
     
     data = json[json.length-1]
     data2 = json[json.length-2]
-    // console.log(data)
+    console.log(data)
     // console.log(data2)
     let deaths = data.Deaths;
     let confirmed = data.Confirmed;
@@ -104,10 +114,17 @@ const showData = function(json){
     let recovered = data.Recovered;
     let max = 0;
     let laatst = 0;
+    let dates = [];
+    
     golf = [];
     for(x of json){
         let nexData = json[json.indexOf(x)+1];
-
+        let date = new Date(x.Date);
+        
+        const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(date);
+        const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
+        console.log(da + "/"+mo)
+        dates.push(da + "/"+mo)
         // if(previous != undefined){
         //     console.log(nexData.Confirmed + " " + previous.Confirmed)
         // }
@@ -146,7 +163,7 @@ const showData = function(json){
         
     }
     chart.data.datasets[0].data = golf;
-    chart.data.labels = golf;
+    chart.data.labels = dates;
     
     chart.update();
     let rest = max % 2000;
