@@ -93,6 +93,13 @@ body{
 /* DATA VISUALISATION SECTION */
 /*                            */
 
+.c-note{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8px;
+    color: white;
+}
+
 .c-data{
     background-color: var(--color-card);
     border-radius: 12px;

@@ -119,12 +119,7 @@ const showData = function(json){
     golf = [];
     for(x of json){
         let nexData = json[json.indexOf(x)+1];
-        let date = new Date(x.Date);
         
-        const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(date);
-        const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
-        console.log(da + "/"+mo)
-        dates.push(da + "/"+mo)
         // if(previous != undefined){
         //     console.log(nexData.Confirmed + " " + previous.Confirmed)
         // }
@@ -134,28 +129,36 @@ const showData = function(json){
             if(nexData.Confirmed  - x.Confirmed > max){
                 max = nexData.Confirmed  - x.Confirmed;
             }
-
+            let date = new Date(x.Date);
+        
+            const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(date);
+            const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
+            console.log(da + "/"+mo)
+            dates.push(da + "/"+mo)
+            golf.push(nexData.Confirmed  - x.Confirmed);
+            
             if(nexData.Confirmed  - x.Confirmed == 0){
                 
-                let latest = golf[golf.length-1]
-                let prelatest = golf[golf.length-2]
-                let median = (latest + prelatest)/2;
-                // console.log(median)
-                if(isNaN(median)){
-                    console.log("yes")
-                    median = 0;
-                }
-                golf.push(Math.round(median))
-                // console.log(json.indexOf(x))
-                // console.log(json.length)
-                if(json.indexOf(x)+1 == json.length-1){
+                
+                // let latest = golf[golf.length-1]
+                // let prelatest = golf[golf.length-2]
+                // let median = (latest + prelatest)/2;
+                // // console.log(median)
+                // if(isNaN(median)){
+                //     console.log("yes")
+                //     median = 0;
+                // }
+                // golf.push(Math.round(median))
+                // // console.log(json.indexOf(x))
+                // // console.log(json.length)
+                // if(json.indexOf(x)+1 == json.length-1){
                     
-                    laatst = Math.round(median);
-                }
+                //     laatst = Math.round(median);
+                // }
 
             }
             else{
-                golf.push(nexData.Confirmed  - x.Confirmed);
+                
             }
             // console.log(x.Confirmed)
             
