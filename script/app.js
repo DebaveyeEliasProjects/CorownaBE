@@ -40,6 +40,19 @@ const initCharts = function(){
             }]
         },
         options: {
+            plugins: {
+                zoom: {
+                    pan: {
+                        enabled: true,
+                        mode: 'xy' // is panning about the y axis neccessary for bar charts?
+                    },
+                    zoom: {
+                        enabled: true,
+                        mode: 'x',
+                        sensitivity: 0.01
+                    }
+                }
+            },
             "horizontalLine": [{
                 "y": 4.2,
                 "style": "rgba(255, 255, 255, .4)",
